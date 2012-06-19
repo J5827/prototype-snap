@@ -24,7 +24,7 @@ import           Application
 ------------------------------------------------------------------------------
 -- | The application's routes.
 routes :: [(ByteString, Handler App App ())]
-routes = [ ("",          serveDirectory "static")
+routes = [ ("",          serveDirectory "resources")
          ]
 
 

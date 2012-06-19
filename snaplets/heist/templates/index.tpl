@@ -1,5 +1,9 @@
 <apply template="base">
 
-  <p>42</p>
+  <h1>autotool snap prototype</h1>
+
+  <div class="well">
+    <p>42</p>
+  </div>
 
 </apply>
