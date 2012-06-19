@@ -1,4 +1,6 @@
 .ghci
+*.swp
+*.swo
 dist
 site_key.txt
 users.json
