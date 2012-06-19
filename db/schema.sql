@@ -4,72 +4,72 @@
 
 drop table IF EXISTS tutor;
 create table tutor (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  firstname,
-  lastname,
-  school
+  id        INTEGER PRIMARY KEY,
+  firstname TEXT,
+  lastname  TEXT,
+  school    TEXT
 );
 
 drop table IF EXISTS student;
 create table student (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  firstname,
-  lastname,
-  school
+  id        INTEGER PRIMARY KEY,
+  firstname TEXT,
+  lastname  TEXT,
+  school    TEXT
 );
 
 drop table IF EXISTS course;
 create table course (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  tutorId INTEGER,
-  name,
-  semester,
-  assessment,
-  starttime,
-  enrollment
+  id         SERIAL PRIMARY KEY,
+  tutorId    INTEGER,
+  name       TEXT,
+  semester   TEXT,
+  assessment TEXT,
+  starttime  TEXT,
+  enrollment TEXT
 );
 
 drop table IF EXISTS coursegroup;
 create table coursegroup (
-  id INTEGER PRIMARY KEY,
+  id       SERIAL PRIMARY KEY,
   courseId INTEGER,
-  tutorId INTEGER,
-  name,
+  tutorId  INTEGER,
+  name     TEXT,
   capacity INTEGER
 );
 
 drop table IF EXISTS task;
 create table task (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id      SERIAL PRIMARY KEY,
   tutorId INTEGER,
-  name,
-  status,
-  scoring,
-  config
+  name    TEXT,
+  status  TEXT,
+  scoring TEXT,
+  config  TEXT
 );
 
 drop table IF EXISTS solution;
 create table solution (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id        SERIAL PRIMARY KEY,
   studentId INTEGER,
-  taskId INTEGER,
-  content,
-  score INTEGER
+  taskId    INTEGER,
+  content   TEXT,
+  score     INTEGER
 );
 
 drop table IF EXISTS enrollment;
 create table enrollment (
-  studentId INTEGER,
+  studentId     INTEGER,
   coursegroupId INTEGER,
-  time,
+  time          TEXT,
   PRIMARY KEY (studentId, coursegroupId)
 );
 
 drop table IF EXISTS assignment;
 create table assignment (
-  taskId INTEGER,
-  courseId INTEGER,
-  starttime,
-  deadline,
+  taskId    INTEGER,
+  courseId  INTEGER,
+  starttime TEXT,
+  deadline  TEXT,
   PRIMARY KEY (taskId, courseId)
 );
