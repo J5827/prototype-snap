@@ -28,20 +28,6 @@ import Controller.UserRegistration
 
 
 ------------------------------------------------------------------------------
--- | Test function to play with the database.
-
-{-
-handleDb :: AppHandler ()
-handleDb = do
-    rows <- query_ "select * from solution" -- where id = 1"
-    forM_ rows printSolution
-  where  
-    printSolution :: Solution -> AppHandler ()
-    printSolution = writeText . T.pack . show
--}
-
-
-------------------------------------------------------------------------------
 -- | The application's routes.
 routes :: [(ByteString, Handler App App ())]
 routes = [ ("/",              handleUserIdentification)
@@ -51,7 +37,6 @@ routes = [ ("/",              handleUserIdentification)
          , ("/register",      handleRegistrationForm)
          , ("/student",       handleStudentArea)
          , ("/tutor",         handleTutorArea)
-      -- , ("db",             handleDb)
          , ("",               serveDirectory "resources")
          ]
 
