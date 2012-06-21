@@ -1,0 +1,65 @@
+/*** FIXES ******************************************************************/
+
+.navbar-fixed-top {
+  position: static;
+  margin-bottom: 18px;
+}
+
+
+/*** GENERAL ****************************************************************/
+
+footer {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding-top: 3px;
+}
+
+
+/*** NAVBAR *****************************************************************/
+
+.navbar .brand {
+  padding: 8px 20px 0px 10px;
+}
+
+.navbar .brand span {
+  padding-left: 15px;
+  vertical-align: middle;
+}
+
+
+/*** HOME *******************************************************************/
+
+#index {
+  padding-top: 10px;
+}
+
+
+/*** TASK LIST **************************************************************/
+
+span.category {
+  font-weight: bold;
+}
+
+
+/*** SOLVE TASK *************************************************************/
+
+#task-example {
+  width: 99%;
+  height: 300px;
+  background: lightblue;
+  font-family: Monospace;
+  font-size: 11px;
+}
+
+
+/*** FORMS ******************************************************************/
+
+ul.alert-error {
+  list-style-type: none;
+  margin: 0px 0px 20px;
+}
+
+.white {
+  background: white;
+}

@@ -2,26 +2,21 @@
 -- TABLE STRUCTURE                                                          --
 ------------------------------------------------------------------------------
 
-drop table IF EXISTS tutor;
-create table tutor (
-  id        INTEGER PRIMARY KEY,
-  firstname TEXT,
-  lastname  TEXT,
-  school    TEXT
+drop table if exists users;
+create table users (
+  id           SERIAL PRIMARY KEY,
+  auth_user_id INTEGER,
+  firstname    TEXT,
+  lastname     TEXT,
+  email        TEXT,
+  school       TEXT,
+  role         TEXT
 );
 
-drop table IF EXISTS student;
-create table student (
-  id        INTEGER PRIMARY KEY,
-  firstname TEXT,
-  lastname  TEXT,
-  school    TEXT
-);
-
-drop table IF EXISTS course;
-create table course (
+drop table if exists courses;
+create table courses (
   id         SERIAL PRIMARY KEY,
-  tutorId    INTEGER,
+  user_id    INTEGER,
   name       TEXT,
   semester   TEXT,
   assessment TEXT,
@@ -29,47 +24,48 @@ create table course (
   enrollment TEXT
 );
 
-drop table IF EXISTS coursegroup;
-create table coursegroup (
-  id       SERIAL PRIMARY KEY,
-  courseId INTEGER,
-  tutorId  INTEGER,
-  name     TEXT,
-  capacity INTEGER
+drop table if exists coursegroups;
+create table coursegroups (
+  id        SERIAL PRIMARY KEY,
+  course_id INTEGER,
+  user_id   INTEGER,
+  name      TEXT,
+  capacity  INTEGER
 );
 
-drop table IF EXISTS task;
-create table task (
+drop table if exists tasks;
+create table tasks (
   id      SERIAL PRIMARY KEY,
-  tutorId INTEGER,
+  user_id INTEGER,
   name    TEXT,
   status  TEXT,
   scoring TEXT,
   config  TEXT
 );
 
-drop table IF EXISTS solution;
-create table solution (
-  id        SERIAL PRIMARY KEY,
-  studentId INTEGER,
-  taskId    INTEGER,
-  content   TEXT,
-  score     INTEGER
+drop table if exists solutions;
+create table solutions (
+  id      SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  taskId  INTEGER,
+  content TEXT,
+  score   INTEGER,
+  time    TEXT
 );
 
-drop table IF EXISTS enrollment;
-create table enrollment (
-  studentId     INTEGER,
-  coursegroupId INTEGER,
-  time          TEXT,
-  PRIMARY KEY (studentId, coursegroupId)
+drop table if exists enrollments;
+create table enrollments (
+  user_id        INTEGER,
+  coursegroup_id INTEGER,
+  time           TEXT,
+  PRIMARY KEY (user_id, coursegroup_id)
 );
 
-drop table IF EXISTS assignment;
-create table assignment (
-  taskId    INTEGER,
-  courseId  INTEGER,
+drop table if exists assignments;
+create table assignments (
+  task_id   INTEGER,
+  course_id INTEGER,
   starttime TEXT,
   deadline  TEXT,
-  PRIMARY KEY (taskId, courseId)
+  PRIMARY KEY (task_id, course_id)
 );
